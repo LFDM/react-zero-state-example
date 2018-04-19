@@ -1,10 +1,21 @@
 @import '~style/vars.less';
 
 body {
-    font-family: @defaultFont;
-    font-weight: @fontWeight;
+  font-family: @defaultFont;
+  font-weight: @fontWeight;
+  background-color: @bodyBackgroundColor;
+
 }
 
 input, textarea, select, button {
-    font-family: @defaultFont;
+  font-family: @defaultFont;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+
+  > * {
+    width: 1000px;
+  }
 }
