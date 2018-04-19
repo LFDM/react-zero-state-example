@@ -24,15 +24,15 @@ export default withState(
           <TextArea field="body" />
         </div>
         <ButtonContainer>
-          { status === STATUS.IDLE ?
-            <ButtonSubmit>{ label }</ButtonSubmit> :
-            <ButtonSecondary disabled={true}>Saving...</ButtonSecondary>
-          }
           <ButtonSecondary
             disabled={status !== STATUS.IDLE}
             onClick={onCancel}>
             Cancel
           </ButtonSecondary>
+          { status === STATUS.IDLE ?
+            <ButtonSubmit>{ label }</ButtonSubmit> :
+            <ButtonSecondary disabled={true}>Saving...</ButtonSecondary>
+          }
         </ButtonContainer>
       </Form>
     )}
