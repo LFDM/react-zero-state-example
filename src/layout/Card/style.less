@@ -1,0 +1,36 @@
+@import '~style/vars.less';
+
+@cardPadding: @standardpadding;
+@cardMargin: (@standardpadding * .5);
+@cardBackgroundColor: white;
+@cardBorderRadius: 3px;
+@cardBorderWidth: 1px;
+@cardBorder: @cardBorderWidth solid;
+@cardBorderColor: rgba(0, 0, 0, 0.10);
+@cardBoxShadow: 0 1px 4px rgba(0,0,0,.04);
+
+.card {
+    display: block;
+    border-radius: @cardBorderRadius;
+    border: @cardBorder;
+    border-color: @cardBorderColor;
+    background-color: @cardBackgroundColor;
+    cursor: default;
+    transition: all 200ms;
+    margin-bottom: @cardMargin;
+    padding: @cardPadding;
+    position: relative;
+    box-shadow: @cardBoxShadow;
+
+    // All first and last descendants should have the border radius
+    > *:first-child {
+        border-top-left-radius: @cardBorderRadius;
+        border-top-right-radius: @cardBorderRadius;
+    }
+
+    > *:last-child {
+        border-bottom-left-radius: @cardBorderRadius;
+        border-bottom-right-radius: @cardBorderRadius;
+    }
+}
+
