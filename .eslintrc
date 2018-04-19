@@ -12,6 +12,9 @@
     }
   },
   globals: {
+    "require": true,
+    "module": true,
+    "__dirname": true,
     "React": true,
     "setTimeout": true,
     "document": true
