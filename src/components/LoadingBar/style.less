@@ -1,0 +1,42 @@
+@import '~style/vars.less';
+@height: 10px;
+@maxWidth: 250px;
+@bg: @SIGray7;
+@slidingBg: @SIGray5;
+
+.container {
+    margin: @standardpadding 0;
+}
+.bar {
+    height: @height;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: @bg;
+}
+.bar:before {
+    display: block;
+    position: absolute;
+    content: '';
+    left: -@maxWidth;
+    width: 30%;
+    max-width: @maxWidth;
+    height: @height;
+    background-color: @slidingBg;
+    animation: loading 1.5s ease infinite;
+}
+
+@keyframes loading {
+    from {
+        left: -@maxWidth;
+    }
+    to {
+        left: 110%;
+    }
+}
+
+
+.label {
+    color: @subduedTextOnGrey;
+}
+
