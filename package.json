@@ -29,6 +29,7 @@
     "classnames": "^2.2.5",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
+    "featherico": "^1.4.1",
     "ladda-cache": "^0.2.16",
     "ladda-logger": "^0.2.9",
     "ladda-observable": "^0.2.8",
