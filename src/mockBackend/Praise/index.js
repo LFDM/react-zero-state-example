@@ -46,7 +46,12 @@ const PRAISES = [
 const _getById = (id) => PRAISES[id];
 
 export const getById = compose(withLatency, _getById);
-export const getAll = () => compose(withLatency, sortBy(['createdAt'], ['desc']), values)(PRAISES);
+export const getAll = (recipientId = null) => compose(
+  withLatency,
+  recipientId ? filter(p => p.recipient.id === recipientId) : identity,
+  sortBy(['createdAt'], ['desc']),
+  values
+)(PRAISES);
 export const create = (praiseData) => {
   const id = generateId();
   const praise = { id, praiseData, likes: [], createdAt: moment().valueOf() };
