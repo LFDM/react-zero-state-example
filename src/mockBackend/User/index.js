@@ -1,5 +1,6 @@
 import { keyBy, compose, filter, map, identity, values } from 'lodash/fp';
 import { generateId } from '../id;'
+import { withLatency } from '../latency';
 
 export const USER = {
   CHRIS: {
@@ -32,7 +33,9 @@ export const USER = {
 
 const USERS = keyBy('id', [USER.CHRIS, USER.HEATHER, USER.MARK, USER.MARY, USER.FIONA]);
 
-export getById = (id) => USERS[id];
-export getByIds = compose(filter(identity), map(getById));
-export getAll = () => values(USERS);
+const _getById = (id) => USERS[id];
+
+export getById = compose(withLatency, _getById);
+export getByIds = compose(withLatency, filter(identity), map(_getById);
+export getAll = () => withLatency(values(USERS));
 
