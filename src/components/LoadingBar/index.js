@@ -1,4 +1,4 @@
-import styles from './style.m.less';
+import styles from './style.less';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 

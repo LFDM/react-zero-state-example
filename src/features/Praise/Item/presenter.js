@@ -1,7 +1,7 @@
 import { find } from 'lodash/fp';
 import { Dropdown, OptionWithModal } from '../../../components/Dropdown';
 import AvatarListStacked from '../../../components/AvatarListStacked';
-import PromiseTracker, { STATUS } from '../../../components/PromiseTracker';
+import PromiseTracker, { STATUS, forStatus } from '../../../components/PromiseTracker';
 import styles from './style.less'
 
 
@@ -27,16 +27,16 @@ export default ({
   unlike
 }) => (
   <div>
-    <div className={style.container}>
-      <div className{style.recipient}>
-        <img className={style.recipientAvatar} src={user.avatar} />
-        <div className={style.recipientName}>{user.name}</div>
+    <div className={styles.container}>
+      <div className={styles.recipient}>
+        <img className={styles.recipientAvatar} src={recipient.avatar} />
+        <div className={styles.recipientName}>{recipient.name}</div>
       </div>
 
-      <div className={style.body}>
-        <div className={style.content}>
-          <div className={style.title}>
-            <h2>{title}></h2>
+      <div className={styles.body}>
+        <div className={styles.content}>
+          <div className={styles.title}>
+            <h2>{title}</h2>
             <Dropdown>
               <OptionWithModal>Edit</OptionWithModal>
               <OptionWithModal>Delete</OptionWithModal>
@@ -46,7 +46,7 @@ export default ({
         </div>
       </div>
 
-      <div className={style.footer}>
+      <div className={styles.footer}>
         <AvatarListStacked users={likes} />
         <LikeButton
           hasLiked={hasLiked(currentUser, likes)}

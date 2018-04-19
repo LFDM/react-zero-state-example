@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { compose, orderBy, keyBy, values, uniq, filter } from 'lodash/fp';
+import { compose, orderBy, keyBy, values, uniq, filter, identity } from 'lodash/fp';
 import { generateId } from '../id';
 import { withLatency } from '../latency';
 import { USER, getCurrentUser } from '../User';
@@ -49,7 +49,7 @@ export const getById = compose(withLatency, _getById);
 export const getAll = (recipientId = null) => compose(
   withLatency,
   recipientId ? filter(p => p.recipient.id === recipientId) : identity,
-  sortBy(['createdAt'], ['desc']),
+  orderBy(['createdAt'], ['desc']),
   values
 )(PRAISES);
 export const create = (praiseData) => {

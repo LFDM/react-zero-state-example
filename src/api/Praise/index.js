@@ -8,7 +8,7 @@ export function getById(id) {
 
 getAll.operation = 'READ';
 export function getAll(recipientId = null) {
-  return backend.user.getAll(recipientId);
+  return backend.praise.getAll(recipientId);
 }
 
 create.operation = 'CREATE';

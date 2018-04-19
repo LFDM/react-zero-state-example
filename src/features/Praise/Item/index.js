@@ -11,9 +11,7 @@ export default compose(
     remove: api.praise.remove,
     like: api.praise.like,
     unlike: api.praise.unlike
-  }),
+  })),
   withCurrentUser
-);
-
-
+)(Item);
 
