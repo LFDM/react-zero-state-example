@@ -9,7 +9,7 @@ const config = {
   praise: {
     api: praise
   },
-  user; {
+  user: {
     api: user
   }
 };
