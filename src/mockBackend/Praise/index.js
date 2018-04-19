@@ -2,7 +2,7 @@ import moment from 'moment';
 import { orderBy, keyBy, values, uniq, filter } from 'lodash/fp';
 import { generateId } from '../id';
 import { withLatency } from '../latency';
-import { USER, getById as getUserById } from '../User';
+import { USER, getCurrentUser } from '../User';
 
 const PRAISES = [
   {
@@ -66,7 +66,7 @@ export const edit = (praise) => {
 
 export const remove = (id) => withLatency(delete PRAISE[id]);
 
-export const like = (id, userId) => getByUserId(userId).then(u => {
+export const like = (id) => getCurrentUser().then(u => {
   const praise = _getById(id);
   return {
     ...praise,
@@ -74,7 +74,7 @@ export const like = (id, userId) => getByUserId(userId).then(u => {
   };
 });
 
-export const unlike = (id, userId) => getByUserId(userId).then(u => {
+export const unlike = (id) => getCurrentUser().then(u => {
   const praise = _getById(id);
   return {
     ...praise,

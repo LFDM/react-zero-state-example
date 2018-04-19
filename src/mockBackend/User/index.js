@@ -28,13 +28,20 @@ export const USER = {
     name: 'Fiona from Finance',
     avatar: ''
   },
+  CHARLY: {
+    id: generateId(),
+    name: 'Charly the Coder'
+  }
 }
 
+const CURRENT_USER = USER.CHARLY;
 
-const USERS = keyBy('id', [USER.CHRIS, USER.HEATHER, USER.MARK, USER.MARY, USER.FIONA]);
+
+const USERS = keyBy('id', [USER.CHRIS, USER.HEATHER, USER.MARK, USER.MARY, USER.FIONA, USER.CHARLY]);
 
 const _getById = (id) => USERS[id];
 
+export getCurrentUser = compose(withLatency, () => CURRENT_USER);
 export getById = compose(withLatency, _getById);
 export getByIds = compose(withLatency, filter(identity), map(_getById);
 export getAll = () => withLatency(values(USERS));

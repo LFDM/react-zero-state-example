@@ -22,13 +22,13 @@ export function edit(praise) {
 }
 
 like.operation = 'COMMAND';
-export function like(id, userId) {
-  return backend.praise.like(id, userId);
+export function like(id) {
+  return backend.praise.like(id);
 }
 
 unlike.operation = 'COMMAND';
-export function unlike(id, userId) {
-  return backend.praise.unlike(id, userId);
+export function unlike(id) {
+  return backend.praise.unlike(id);
 }
 
 remove.operation = 'DELETE';
