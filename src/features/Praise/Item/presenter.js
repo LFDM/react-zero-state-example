@@ -13,7 +13,7 @@ const LikeButton = ({ hasLiked, like, unlike }) => (
       forStatus({
         [STATUS.IDLE]: <button onClick={trigger}>{hasLiked ? 'Liked' : 'Like'}</button>,
         [STATUS.PENDING]: <span>Saving...</span>
-      })
+      }, status)
     }
   </PromiseTracker>
 );
