@@ -1,12 +1,6 @@
-import { noop, omit, pick } from 'lodash/fp';
+import { noop, omit } from 'lodash/fp';
 import { PropTypes } from 'prop-types';
 import { Component } from 'react';
-import classNames from 'classnames';
-
-import Input from '../Input';
-import TextArea from '../TextArea';
-
-import styles from './style.less';
 
 export const FORM_CONTEXT = {
   form: PropTypes.shape({
@@ -72,57 +66,5 @@ Form.defaultProps = {
 };
 
 Form.childContextTypes = FORM_CONTEXT;
-
-export function FormInput(props, context) {
-    const { field, className } = props;
-    const { form: { onFieldBlur, onChange, data } } = context;
-    const handleChange = event => onChange(field)(event.target.value);
-    const inputProps = {
-        id: field,
-        name: field,
-        className: classNames(styles.formInput, className),
-        value: data[field].value,
-        error: data[field].error,
-        onChange: handleChange,
-        onBlur: onFieldBlur(field),
-        ...pick([
-            'autoFocus',
-            'disabled',
-            'maxLength',
-            'minLength',
-            'prefix',
-            'prefixSize',
-            'required',
-            'style',
-            'type',
-        ])(props),
-    };
-    return <Input {...inputProps} />;
-}
-
-FormInput.contextTypes = FORM_CONTEXT;
-
-export function FormTextArea(props, context) {
-    const { field, className } = props;
-    const { form: { onFieldBlur, onChange, data } } = context;
-    const handleChange = event => onChange(field)(event.target.value);
-    const inputProps = {
-        id: field,
-        name: field,
-        className: classNames(styles.formTextArea, className),
-        value: data[field].value,
-        onChange: handleChange,
-        onBlur: onFieldBlur(field),
-        ...pick([
-            'autoFocus',
-            'disabled',
-            'required',
-            'style',
-        ])(props),
-    };
-    return <TextArea {...inputProps} />;
-}
-
-FormTextArea.contextTypes = FORM_CONTEXT;
 
 
