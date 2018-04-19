@@ -1,14 +1,19 @@
 import backend from '../../mockBackend';
 
+getCurrentUser = 'READ';
+export function getCurrentUser() {
+  return backend.user.getCurrentUser();
+}
+
 getById.operation = 'READ';
 getById.byId = true;
-export function getById(id) => {
+export function getById(id) {
   return backend.user.getById(id);
 }
 
 getByIds.operation = 'READ';
 getByIds.byIds = true;
-export function getByIds(ids) => {
+export function getByIds(ids) {
   return backend.user.getByIds(ids);
 }
 
