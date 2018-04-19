@@ -11,7 +11,7 @@ export const FORM_CONTEXT = {
   }).isRequired,
 };
 
-export class Form extends Component {
+export default class Form extends Component {
   getChildContext() {
     const { data, onChange, onSubmit, onFieldBlur } = this.props;
     return {
@@ -54,13 +54,15 @@ export class Form extends Component {
 }
 
 Form.propTypes = {
-  data: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired,
+  data: PropTypes.object,
+  onChange: PropTypes.func,
   onFieldBlur: PropTypes.func,
   onSubmit: PropTypes.func,
 };
 
 Form.defaultProps = {
+  data: {},
+  onChange: noop,
   onSubmit: noop,
   onFieldBlur: () => noop,
 };
