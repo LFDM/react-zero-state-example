@@ -50,6 +50,11 @@ module.exports = {
       React: 'react'
     })
   ],
+  resolve: {
+    alias: {
+      style: path.resolve(__dirname, './src/style/'),
+    },
+  },
   devServer: {
     historyApiFallback: true
   }
