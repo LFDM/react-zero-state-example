@@ -5,31 +5,38 @@ import { withLatency } from '../latency';
 export const USER = {
   CHRIS: {
     id: generateId(),
+    firstName: 'Chris',
     name: 'Chris the CEO',
     avatar: '/images/chris.png'
   },
   MARK: {
     id: generateId(),
+    firstName: 'Mark',
     name: 'Mark the Manager',
     avatar: '/images/mark.png'
   },
   MARY: {
     id: generateId(),
+    firstName: 'Mary',
     name: 'Mary the Manager',
     avatar: '/images/mary.png'
   },
   HEATHER: {
     id: generateId(),
+    firstName: 'Heather',
     name: 'Heather from HR',
     avatar: '/images/heather.png'
   },
   FIONA: {
     id: generateId(),
+    firstName: 'Fiona',
     name: 'Fiona from Finance',
     avatar: '/images/fiona.png'
   },
   CHARLY: {
     id: generateId(),
+    firstName: 'Charly',
+    name: 'Charly the Coder',
     avatar: '/images/charly.png'
   }
 }
