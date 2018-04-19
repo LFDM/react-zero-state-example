@@ -10,11 +10,13 @@ const buttonFactory = (className, type = 'button') => (props) => (
 );
 
 
+
+
 export const ButtonSubmit = buttonFactory(styles.primary, 'submit');
 export const ButtonPrimary = buttonFactory(styles.primary);
 export const ButtonSecondary =  buttonFactory(styles.secondary);
 export const ButtonDangerous =  buttonFactory(styles.dangerous);
-export const ButtonInline = buttonFactory(styles.inline);
+export const ButtonInline = (props) => <button type="button" { ...props } />;
 export const ButtonLink = buttonFactory(styles.link);
 
 export const ButtonContainer = ({ className, children }) => <div className={classNames(styles.container, className)}>{children}</div>;
