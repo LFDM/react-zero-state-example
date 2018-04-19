@@ -6,31 +6,31 @@ export const USER = {
   CHRIS: {
     id: generateId(),
     name: 'Chris the CEO',
-    avatar: ''
+    avatar: '/images/chris.png'
   },
   MARK: {
     id: generateId(),
     name: 'Mark the Manager',
-    avatar: ''
+    avatar: '/images/mark.png'
   },
   MARY: {
     id: generateId(),
     name: 'Mary the Manager',
-    avatar: ''
+    avatar: '/images/mary.png'
   },
   HEATHER: {
     id: generateId(),
     name: 'Heather from HR',
-    avatar: ''
+    avatar: '/images/heather.png'
   },
   FIONA: {
     id: generateId(),
     name: 'Fiona from Finance',
-    avatar: ''
+    avatar: '/images/fiona.png'
   },
   CHARLY: {
     id: generateId(),
-    name: 'Charly the Coder'
+    avatar: '/images/charly.png'
   }
 }
 
