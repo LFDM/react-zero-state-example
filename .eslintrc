@@ -12,7 +12,9 @@
     }
   },
   globals: {
-    "React": true
+    "React": true,
+    "setTimeout": true,
+    "document": true
   },
   rules: {
     "react/prop-types": 0,
