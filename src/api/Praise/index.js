@@ -7,6 +7,8 @@ export function getById(id) {
 }
 
 getAll.operation = 'READ';
+getAll.updateOnCreate = (args, x, xs) =>
+  !args[0] || x.recipient.id === args[0] ? [x, ...xs] : xs;
 export function getAll(recipientId = null) {
   return backend.praise.getAll(recipientId);
 }
