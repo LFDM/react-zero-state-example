@@ -57,7 +57,8 @@ module.exports = {
     },
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, './static/'),
   }
 };
 
