@@ -1,4 +1,4 @@
-import { noop, omit } from 'lodash/fp';
+import { noop, omit, keys, compose, set, reduce, mapValues } from 'lodash/fp';
 import { PropTypes } from 'prop-types';
 import { Component } from 'react';
 
@@ -43,6 +43,7 @@ export default class Form extends Component {
       },
     };
   }
+
   render() {
     const { onSubmit, children, ...otherProps } = omit('onFieldBlur')(this.props);
     return (
@@ -54,14 +55,13 @@ export default class Form extends Component {
 }
 
 Form.propTypes = {
-  data: PropTypes.object,
-  onChange: PropTypes.func,
+  data: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
   onFieldBlur: PropTypes.func,
   onSubmit: PropTypes.func,
 };
 
 Form.defaultProps = {
-  data: {},
   onChange: noop,
   onSubmit: noop,
   onFieldBlur: () => noop,
@@ -69,4 +69,21 @@ Form.defaultProps = {
 
 Form.childContextTypes = FORM_CONTEXT;
 
+export function createFormState(fields) {
+  return reduce(
+    (mem, field) =>
+    compose(
+      set([field, 'value'], fields[field]),
+      set([field, 'dirty'], false),
+      set([field, 'touched'], !!fields[field]),
+      set([field, 'error'], null)
+    )(mem),
+    {},
+    keys(fields)
+  );
+}
+
+export function getValues(form) {
+    return mapValues(v => v.value, form);
+}
 

@@ -10,7 +10,10 @@ import styles from './style.less';
 export function Input(props, context) {
     const { field, className } = props;
     const { form: { onFieldBlur, onChange, data } } = context;
-    const handleChange = event => onChange(field)(event.target.value);
+    const handleChange = event => {
+      event.stopPropagation();
+      onChange(field)(event.target.value);
+    };
     const inputProps = {
         id: field,
         name: field,
@@ -39,7 +42,10 @@ Input.contextTypes = FORM_CONTEXT;
 export function TextArea(props, context) {
     const { field, className } = props;
     const { form: { onFieldBlur, onChange, data } } = context;
-    const handleChange = event => onChange(field)(event.target.value);
+    const handleChange = event => {
+      event.stopPropagation();
+      onChange(field)(event.target.value);
+    }
     const inputProps = {
         id: field,
         name: field,
