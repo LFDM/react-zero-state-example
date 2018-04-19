@@ -1,5 +1,6 @@
 import { find } from 'lodash/fp';
 import { Dropdown, OptionWithModal } from '../../../components/Dropdown';
+import { ButtonLink } from '../../../components/Button';
 import AvatarListStacked from '../../../components/AvatarListStacked';
 import PromiseTracker, { STATUS, forStatus } from '../../../components/PromiseTracker';
 import styles from './style.less'
@@ -11,7 +12,7 @@ const LikeButton = ({ hasLiked, like, unlike }) => (
   <PromiseTracker onTrigger={hasLiked ? unlike : like}>
     {({ trigger, status }) =>
       forStatus({
-        [STATUS.IDLE]: <button onClick={trigger}>{hasLiked ? 'Liked' : 'Like'}</button>,
+        [STATUS.IDLE]: <ButtonLink onClick={trigger}>{hasLiked ? 'Liked' : 'Like'}</ButtonLink>,
         [STATUS.PENDING]: <span>Saving...</span>
       }, status)
     }
