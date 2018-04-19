@@ -3,5 +3,19 @@
   "plugins": [
     "react"
   ],
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  globals: {
+    "React": true
+  },
+  rules: {
+    "react/prop-types": 0,
+    "react/display-name": 0,
+  }
 }
