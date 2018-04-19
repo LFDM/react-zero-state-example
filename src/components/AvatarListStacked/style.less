@@ -1,0 +1,58 @@
+@import '~style/vars.less';
+
+@size: @standardpadding;
+@borderWidth: 2px;
+
+.container {
+  align-items: center;
+  display: flex;
+  margin-right: 2px;
+  margin-left: -@borderWidth;
+}
+
+.item {
+  border: @borderWidth solid white;
+  margin-right: -(@size / 4);
+  border-radius: @size;
+  display: block;
+}
+
+.avatar {
+  display: block;
+}
+
+
+.button {
+  display: block;
+  cursor: pointer;
+}
+
+.additional {
+  padding: 1px 10px;
+  background-color: @borderColor;
+  color: black;
+  font-size: @fontSizeS;
+  line-height: 1.7;
+  font-weight: @fontWeightBold;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  border-radius: inherit;
+}
+
+.extraSmall {
+  height: @avatarSizeXS;
+}
+
+.small {
+  height: @avatarSizeS;
+}
+
+.medium {
+  height: @avatarSizeM;
+}
+
+.large {
+  height: @avatarSizeL;
+}
+
