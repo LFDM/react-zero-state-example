@@ -5,6 +5,7 @@ import { ButtonContainer, ButtonSecondary, ButtonDangerous, ButtonLink } from '.
 import Avatar from '../../../components/Avatar';
 import AvatarListStacked from '../../../components/AvatarListStacked';
 import PromiseTracker, { STATUS, forStatus } from '../../../components/PromiseTracker';
+import { Card } from '../../../layout/Card';
 import Form from '../Form';
 import styles from './style.less'
 
@@ -53,7 +54,7 @@ export default ({
   like,
   unlike
 }) => (
-  <div>
+  <Card className={styles.wrapper}>
     <div className={styles.container}>
       <div className={styles.recipient}>
         <Avatar user={praise.recipient} size="XL" />
@@ -62,8 +63,11 @@ export default ({
 
       <div className={styles.body}>
         <div className={styles.content}>
-          <div className={styles.title}>
-            <h2>{praise.title}</h2>
+          <div className={styles.header}>
+            <div className={styles.author}>
+              <Avatar user={praise.author} size="SM"/>
+              {praise.author.name}
+            </div>
             <Dropdown>
               <OptionWithModal
                 modalProps={{
@@ -95,18 +99,19 @@ export default ({
               </OptionWithModal>
             </Dropdown>
           </div>
+          <h3>{praise.title}</h3>
           <div>{praise.body}</div>
         </div>
-      </div>
 
-      <div className={styles.footer}>
-        <AvatarListStacked users={praise.likes} />
-        <LikeButton
-          hasLiked={hasLiked(currentUser, praise.likes)}
-          like={() => like(praise.id)}
-          unlike={() => unlike(praise.id)}
-        />
+        <div className={styles.footer}>
+          <AvatarListStacked users={praise.likes} size="SM"/>
+          <LikeButton
+            hasLiked={hasLiked(currentUser, praise.likes)}
+            like={() => like(praise.id)}
+            unlike={() => unlike(praise.id)}
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </Card>
 );
