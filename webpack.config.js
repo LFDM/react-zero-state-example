@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   module: {
@@ -7,7 +8,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: ['babel-loader', 'eslint-loader']
+          loader: 'babel-loader'
         }
       },
       {
@@ -44,7 +45,13 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html'
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react'
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true
+  }
 };
 
