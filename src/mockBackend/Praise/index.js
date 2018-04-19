@@ -4,7 +4,7 @@ import { generateId } from '../id';
 import { withLatency } from '../latency';
 import { USER, getCurrentUser } from '../User';
 
-const PRAISES = [
+const PRAISES = keyBy('id', [
   {
     id: generateId(),
     title: '',
@@ -41,7 +41,7 @@ const PRAISES = [
     likes: [USER.MARY, USER.MARK],
     createdAt: moment().subtract(4, 'day').valueOf()
   },
-]
+]);
 
 const _getById = (id) => PRAISES[id];
 
@@ -53,18 +53,26 @@ export const getAll = (recipientId = null) => compose(
   values
 )(PRAISES);
 export const create = (praiseData) => {
-  const id = generateId();
-  const praise = { id, praiseData, likes: [], createdAt: moment().valueOf() };
-  PRAISES[id] =  praise;
-  return withLatency(praise);
+  return getCurrentUser().then(currentUser => {
+    const id = generateId();
+    const praise = {
+      ...praiseData,
+      id,
+      author: currentUser,
+      likes: [],
+      createdAt: moment().valueOf()
+    };
+    PRAISES[id] =  praise;
+    return withLatency(praise);
+  });
 }
 
 export const edit = (praise) => {
-  PRAISES[id] =  praise;
+  PRAISES[praise.id] =  praise;
   return withLatency(praise);
 }
 
-export const remove = (id) => withLatency(delete PRAISE[id]);
+export const remove = (id) => withLatency(delete PRAISES[id]);
 
 export const like = (id) => getCurrentUser().then(u => {
   const praise = _getById(id);
