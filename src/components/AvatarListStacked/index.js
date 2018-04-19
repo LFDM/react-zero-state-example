@@ -41,8 +41,6 @@ export default function AvatarListStacked({ users, max, size }) {
   const additional = users.length - maxToDisplay;
   const usersToDisplay = users.slice(0, maxToDisplay);
 
-  console.log('avatars', users);
-
   return (
     <div className={styles.container}>
       {usersToDisplay.map(u => (
