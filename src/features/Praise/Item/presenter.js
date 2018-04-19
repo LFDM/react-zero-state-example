@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { find } from 'lodash/fp';
 import { Dropdown, OptionWithModal } from '../../../components/Dropdown';
 import { ButtonContainer, ButtonSecondary, ButtonDangerous, ButtonLink } from '../../../components/Button';
+import Avatar from '../../../components/Avatar';
 import AvatarListStacked from '../../../components/AvatarListStacked';
 import PromiseTracker, { STATUS, forStatus } from '../../../components/PromiseTracker';
 import Form from '../Form';
@@ -55,7 +56,7 @@ export default ({
   <div>
     <div className={styles.container}>
       <div className={styles.recipient}>
-        <img className={styles.recipientAvatar} src={praise.recipient.avatar} />
+        <Avatar user={praise.recipient} size="XL" />
         <div className={styles.recipientName}>{praise.recipient.name}</div>
       </div>
 
@@ -102,8 +103,8 @@ export default ({
         <AvatarListStacked users={praise.likes} />
         <LikeButton
           hasLiked={hasLiked(currentUser, praise.likes)}
-          like={like}
-          unlike={unlike}
+          like={() => like(praise.id)}
+          unlike={() => unlike(praise.id)}
         />
       </div>
     </div>
