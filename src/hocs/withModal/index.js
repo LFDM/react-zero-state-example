@@ -74,7 +74,7 @@ const propTypes = {
  * It passes an `onClick` handler to MyComponent that opens the modal.
  * It doesn't forward any props to the Modalbody except for a `closeModal` callback
  */
-export default function withModal(WrappedComponent) {
+export function withModal(WrappedComponent) {
   function ComponentWithModal(allProps) {
     const { modalProps: { body: ModalBody, ...modalProps }, ...props } = allProps;
     return (
