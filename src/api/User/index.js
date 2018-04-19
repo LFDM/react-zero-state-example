@@ -1,6 +1,6 @@
 import backend from '../../mockBackend';
 
-getCurrentUser = 'READ';
+getCurrentUser.operation = 'READ';
 export function getCurrentUser() {
   return backend.user.getCurrentUser();
 }

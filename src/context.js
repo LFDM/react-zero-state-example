@@ -1,5 +1,6 @@
 const context = {};
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import api from './api';
 
 export const CONTEXT = {
@@ -7,8 +8,13 @@ export const CONTEXT = {
 };
 
 export class ContextProvider extends Component {
+  constructor(){
+    super();
+    this.state = {};
+  }
+
   componentWillMount() {
-    this.currentUserSubscriber = api.getCurrentUser.createObservable.subscribe(
+    this.currentUserSubscriber = api.user.getCurrentUser.createObservable().subscribe(
       currentUser => this.setState({ currentUser })
     );
   }
@@ -30,6 +36,6 @@ export class ContextProvider extends Component {
   }
 }
 
-ContextProvider.contextTypes = CONTEXT;
+ContextProvider.childContextTypes = CONTEXT;
 
 
