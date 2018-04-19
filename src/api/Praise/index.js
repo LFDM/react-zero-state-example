@@ -2,7 +2,7 @@ import backend from '../../mockBackend';
 
 getById.operation = 'READ';
 getById.byId = true;
-export function getById(id) => {
+export function getById(id) {
   return backend.praise.getById(id);
 }
 

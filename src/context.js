@@ -9,8 +9,8 @@ export const CONTEXT = {
 export class ContextProvider extends Component {
   componentWillMount() {
     this.currentUserSubscriber = api.getCurrentUser.createObservable.subscribe(
-      currentUser => this.setState({ currentUser });
-    )
+      currentUser => this.setState({ currentUser })
+    );
   }
 
   componenWillUnmount() {

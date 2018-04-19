@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { orderBy, keyBy, values, uniq, filter } from 'lodash/fp';
+import { compose, orderBy, keyBy, values, uniq, filter } from 'lodash/fp';
 import { generateId } from '../id';
 import { withLatency } from '../latency';
 import { USER, getCurrentUser } from '../User';
@@ -11,7 +11,7 @@ const PRAISES = [
     body: '',
     author: USER.MARK,
     recipient: USER.MARY,
-    likes: [USER.FIONA, USER.CHRIS]
+    likes: [USER.FIONA, USER.CHRIS],
     createdAt: moment().subtract(1, 'day').valueOf()
   },
   {
@@ -20,7 +20,7 @@ const PRAISES = [
     body: '',
     author: USER.MARY,
     recipient: USER.FIONA,
-    likes: [USER.CHRIS, USER.MARK, USER.HEATHER, USER.MARY]
+    likes: [USER.CHRIS, USER.MARK, USER.HEATHER, USER.MARY],
     createdAt: moment().subtract(2, 'day').valueOf()
   },
   {
@@ -29,7 +29,7 @@ const PRAISES = [
     body: '',
     author: USER.HEATHER,
     recipient: USER.CHRIS,
-    likes: [USER.MARY, USER.MARK]
+    likes: [USER.MARY, USER.MARK],
     createdAt: moment().subtract(3, 'day').valueOf()
   },
   {
@@ -38,7 +38,7 @@ const PRAISES = [
     body: '',
     author: USER.CHRIS,
     recipient: USER.FIONA,
-    likes: [USER.MARY, USER.MARK]
+    likes: [USER.MARY, USER.MARK],
     createdAt: moment().subtract(4, 'day').valueOf()
   },
 ]
