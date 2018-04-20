@@ -117,51 +117,13 @@
         padding: (@standardpadding / 4) (@standardpadding / 2);
         white-space: nowrap;
 
-        &:hover, &:focus {
+        &:hover, &:focus, &.activeOption {
           background: @SIBlue;
           color: white;
           text-decoration: none;
         }
-
-        > i, > ui-svg-include:not(:empty) {
-          min-width: @standardpadding;
-        }
-
-        > ui-svg-include:not(:empty) {
-          display: inline-block;
-        }
-
-        > .fa-spin {
-          text-align: center;
-        }
-      }
-
-      &.disabled a, &.disabled button, &[disabled] a, &[disabled] button, .disabled-link {
-        display: inline-block;
-        padding: (@standardpadding / 4) (@standardpadding / 2);
-        cursor: default;
-        color: @subduedTextOnWhite !important;
-        pointer-events: none;
-
-        &:hover {
-          background: inherit !important;
-          color: @subduedTextOnWhite !important;
-        }
-
-        svg {
-          path {
-            fill: @subduedTextOnWhite;
-          }
-        }
       }
     }
-  }
-
-  .dropdown-headline {
-    display: block;
-    color: #777;
-    cursor: default;
-    margin: (@standardpadding / 4) (@standardpadding / 2);
   }
 
   // positioning for right aligned styling
