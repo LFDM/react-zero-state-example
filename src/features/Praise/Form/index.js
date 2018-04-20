@@ -52,11 +52,7 @@ export default withState(
         </FormContainer>
 
         <ButtonContainer>
-          <ButtonSecondary
-            disabled={status !== STATUS.IDLE}
-            onClick={onCancel}>
-            Cancel
-          </ButtonSecondary>
+          <ButtonSecondary disabled={status !== STATUS.IDLE} onClick={onCancel}>Cancel</ButtonSecondary>
           { status === STATUS.IDLE ?
             <ButtonSubmit>{ label }</ButtonSubmit> :
             <ButtonSecondary disabled={true}>Saving...</ButtonSecondary>

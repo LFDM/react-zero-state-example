@@ -10,7 +10,7 @@ import AvatarListStacked from '../../../components/AvatarListStacked';
 import PromiseTracker, { STATUS, forStatus } from '../../../components/PromiseTracker';
 import { Card } from '../../../layout/Card';
 import Form from '../Form';
-import styles from './style.less'
+import styles from './style.less';
 
 const hasLiked = (user, likes) => !!find(u => user.id === u.id, likes);
 
@@ -89,8 +89,7 @@ export default ({
                       onCancel={closeModal}
                       onSubmit={p => edit({ ...praise, ...p })}
                     />
-                }}
-              >
+                }}>
                 Edit
               </OptionWithModal>
               <OptionWithModal
@@ -102,8 +101,7 @@ export default ({
                       onConfirm={() => remove(praise.id)}
                       onCancel={closeModal}
                     />
-                }}
-              >
+                }}>
                 Delete
               </OptionWithModal>
             </Dropdown>
@@ -117,8 +115,7 @@ export default ({
           <LikeButton
             hasLiked={hasLiked(currentUser, praise.likes)}
             like={() => like(praise.id)}
-            unlike={() => unlike(praise.id)}
-          />
+            unlike={() => unlike(praise.id)}/>
         </div>
       </div>
     </div>
