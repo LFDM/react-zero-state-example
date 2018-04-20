@@ -107,6 +107,16 @@ button {
     }
 }
 
+.link {
+  cursor: pointer;
+  color: @linkFontColor;
+  text-decoration: none;
+
+  &:hover, &:focus {
+      text-decoration: underline;
+  }
+}
+
 .container {
     align-items: baseline;
     display: flex;
