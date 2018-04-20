@@ -87,3 +87,11 @@ export function getValues(form) {
     return mapValues(v => v.value, form);
 }
 
+export function getValue(key, form) {
+  return (form[key] || {}).value;
+}
+
+export function setValue(key, value, form) {
+  return set([key, 'value'], value, form);
+}
+
