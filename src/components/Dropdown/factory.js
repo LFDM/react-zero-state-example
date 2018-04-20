@@ -244,14 +244,14 @@ export const createBaseOption = ({ activeClassName }) => comp => {
       this.props.registerOption(this.option);
     }
     render() {
-      const { onClick, children, selectedOption, selectOption, className } = this.props;
+      const { onClick, onClose, children, selectedOption, selectOption, className } = this.props;
       const cN = classNames(className, {
         [activeClassName]: selectedOption && selectedOption.id === this.id,
       });
 
       return (
         <li className={cN} onMouseOver={() => selectOption(this.option)} onMouseOut={() => selectOption(null)}>
-          {createElement(comp, { onClick }, children)}
+          {createElement(comp, { onClick, onClose }, children)}
         </li>
       );
     }

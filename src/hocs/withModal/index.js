@@ -76,10 +76,11 @@ const propTypes = {
  */
 export function withModal(WrappedComponent) {
   function ComponentWithModal(allProps) {
-    const { modalProps: { body: ModalBody, ...modalProps }, ...props } = allProps;
+    const { modalProps: { body: ModalBody, ...modalProps }, onClose, ...props } = allProps;
     return (
       <WithModal
         {...modalProps}
+        onClose={onClose}
         renderModalContent={({ closeModal }) => <ModalBody closeModal={closeModal} />}
         >
         {({ openModal }) => <WrappedComponent {...props} onClick={openModal} />}
