@@ -16,6 +16,7 @@
     "module": true,
     "__dirname": true,
     "React": true,
+    "Promise": true,
     "setTimeout": true,
     "document": true
   },
