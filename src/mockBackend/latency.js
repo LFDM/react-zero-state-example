@@ -1,6 +1,11 @@
 import { isArray, map, reduce } from 'lodash/fp';
 
-const getDelay = () => Math.floor(Math.random() * 300) + 100;
+const DELAY = {
+  MIN: 400,
+  MAX: 700
+}
+
+const getDelay = () => Math.floor(Math.random() * DELAY.MAX) + DELAY.MIN;
 
 const delay = (value, delay) => new Promise(
   resolve => setTimeout(() => resolve(value), delay)
