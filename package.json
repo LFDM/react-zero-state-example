@@ -44,6 +44,6 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "recompose": "^0.27.0",
-    "uuid": "^3.2.1"
+    "shortid": "^2.2.8"
   }
 }

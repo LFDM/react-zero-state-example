@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import shortId from 'shortid';
 
-export const generateId = () => uuid.v4();
+export const generateId = () => shortId.generate();
 
