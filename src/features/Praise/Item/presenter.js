@@ -5,6 +5,7 @@ import { IconHeart } from 'featherico';
 import { Dropdown, OptionWithModal } from '../../../components/Dropdown';
 import { ButtonContainer, ButtonSecondary, ButtonDangerous, ButtonLink, ButtonInline } from '../../../components/Button';
 import Avatar from '../../../components/Avatar';
+import AvatarWithName from '../../../components/AvatarWithName';
 import AvatarListStacked from '../../../components/AvatarListStacked';
 import PromiseTracker, { STATUS, forStatus } from '../../../components/PromiseTracker';
 import { Card } from '../../../layout/Card';
@@ -75,15 +76,12 @@ export default ({
       <div className={styles.body}>
         <div className={styles.content}>
           <div className={styles.header}>
-            <div className={styles.author}>
-              <Avatar user={praise.author} size="SM"/>
-              {praise.author.name}
-            </div>
+            <AvatarWithName user={praise.author} size="SM" />
             <Dropdown>
               <OptionWithModal
                 modalProps={{
                   title: 'Edit Praise',
-                  size: 'M_WIDTH',
+                  size: 'SM_WIDTH',
                   body: ({ closeModal }) =>
                     <Form
                       praise={praise}
