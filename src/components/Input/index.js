@@ -1,1 +1,1 @@
-export default (props) => <input { ...props } />;
+export default ({ getRef, ...props}) => <input ref={getRef} { ...props } />;
