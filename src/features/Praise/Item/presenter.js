@@ -14,7 +14,7 @@ import styles from './style.less'
 const hasLiked = (user, likes) => !!find(u => user.id === u.id, likes);
 
 const RemoveConfirmation = ({ onCancel, onConfirm }) => (
-  <PromiseTracker>
+  <PromiseTracker onTrigger={onConfirm}>
     {({ trigger, status }) =>
       <Fragment>
         <p>This process cannot be reverted! </p>
