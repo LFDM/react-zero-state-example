@@ -264,7 +264,10 @@ export default class Autocomplete extends Component {
     const inputProps = {
       id,
       value: query,
-      onChange: ev => this.search(ev.target.value),
+      onChange: ev => {
+        ev.stopPropagation();
+        this.search(ev.target.value);
+      },
       onKeyDown: ev => this.interceptKeyboardHandling(ev, shownResults),
       className: classNames(inputStyle, {
         [styles.input_with_results]: showResults,
