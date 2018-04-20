@@ -119,13 +119,13 @@ export const createDropdown = ({
 
     selectNext() {
       this.setState(oldState => ({
-        selectedOption: getNext(this.options, oldState.selectedOption),
+        selectedOption: getNext(this.options, oldState.selectedOption || undefined),
       }));
     }
 
     selectPrevious() {
       this.setState(oldState => ({
-        selectedOption: getPrevious(this.options, oldState.selectedOption),
+        selectedOption: getPrevious(this.options, oldState.selectedOption || undefined),
       }));
     }
 
@@ -245,13 +245,14 @@ export const createBaseOption = ({ activeClassName }) => comp => {
     }
     render() {
       const { onClick, onClose, children, selectedOption, selectOption, className } = this.props;
-      const cN = classNames(className, {
-        [activeClassName]: selectedOption && selectedOption.id === this.id,
-      });
-
       return (
-        <li className={cN} onMouseOver={() => selectOption(this.option)} onMouseOut={() => selectOption(null)}>
-          {createElement(comp, { onClick, onClose }, children)}
+        <li className={className} onMouseOver={() => selectOption(this.option)} onMouseOut={() => selectOption(null)}>
+          {createElement(comp, {
+            onClick,
+            onClose,
+            className: classNames({ [activeClassName]: selectedOption && selectedOption.id === this.id }),
+            children
+          })}
         </li>
       );
     }

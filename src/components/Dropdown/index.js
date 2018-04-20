@@ -5,8 +5,8 @@ import { ButtonInline } from '../Button';
 import { createDropdown, createBaseOption, composeOption } from './factory';
 import styles from './style.less';
 
-export const BaseOption = createBaseOption({ activeClassName: styles.activeOption })(props => (
-  <ButtonInline className={styles.option} {...props} />
+export const BaseOption = createBaseOption({ activeClassName: styles.activeOption })(({ className, ...props }) => (
+  <ButtonInline className={classNames(styles.option, className)} {...props} />
 ));
 
 export const Option = composeOption()(BaseOption);
