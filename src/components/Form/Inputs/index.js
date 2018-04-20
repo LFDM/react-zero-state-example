@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { FORM_CONTEXT } from '..';
 import StandardInput from '../../Input';
 import StandardTextArea from '../../TextArea';
+import StandardAutocompleteUser from '../../AutocompleteUser';
 
 import styles from './style.less';
 
@@ -64,4 +65,13 @@ export function TextArea(props, context) {
 }
 
 TextArea.contextTypes = FORM_CONTEXT;
+
+export function AutocompleteUser(props, context) {
+    const { field, className } = props;
+    const { form: { onFieldBlur, onChange, data } } = context;
+    const user = data[field].value;
+    return <StandardAutocompleteUser onSelect={onChange(field)} selectedUserIds={user ? [user.id] : []} />
+}
+
+AutocompleteUser.contextTypes = FORM_CONTEXT;
 
