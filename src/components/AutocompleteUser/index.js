@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { filter } from 'lodash/fp';
 import api from '../../api';
-import Avatar from '../Avatar';
+import AvatarWithName from '../AvatarWithName';
 import Autocomplete from '../Autocomplete';
 import styles from './style.less';
 
@@ -15,7 +15,7 @@ const defaultProps = {
 
 const Choice = ({ choice, isHighlighted }) => (
   <div className={classNames(styles.choice, { [styles.choiceHighlighted]: isHighlighted })}>
-      <Avatar user={choice} size="SM"></Avatar> {choice.name}
+      <AvatarWithName user={choice} size="SM"></AvatarWithName>
   </div>
 );
 
