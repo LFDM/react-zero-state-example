@@ -1,0 +1,194 @@
+@import '~style/vars.less';
+
+@dropdownSidePadding: (@standardpadding * .25);
+@dropdownItemBackgroundColor: white;
+@dropdownItemHoverBackgroundColor: @SIBlue;
+@dropdownItemHoverTextColor: white;
+@dropdownShadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+@dropdownBorderRadius: 3px;
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  text-align: left;
+
+  .trigger {
+    position: relative;
+    min-width: 25px;
+    margin: 0;
+    outline: none;
+    transition: all 0.2s;
+    text-align: center;
+
+    &:after, &:before {
+      display: none;
+      z-index: @zIndexDropdown;
+      background: @contentBackgroundColor;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+
+    // hide shadows of visual bridge to the dropdown
+    &:after {
+      bottom: -10px;
+      height: 14px;
+    }
+
+    // visual bridge to the dropdown with shadows
+    &:before {
+      bottom: -5px;
+      height: 5px;
+      box-shadow: @dropdownShadow;
+    }
+  }
+
+  &.dropdownOpen {
+    .trigger {
+      &, &:active, &:focus {
+        z-index: @zIndexDropdown + 1;
+        box-shadow: @dropdownShadow;
+        background: @dropdownItemBackgroundColor;
+        border-radius: @dropdownBorderRadius @dropdownBorderRadius 0 0;
+        border-color: transparent;
+
+        // visual bridge to the dropdown
+        &:after, &:before {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .drop > ul {
+    position: absolute;
+    min-width: 140px;
+    max-width: ~"calc(100vw - 10px)";
+    padding: (@standardpadding / 2) 0;
+    background: @dropdownItemBackgroundColor;
+    z-index: @zIndexDropdown;
+    border-radius: @dropdownBorderRadius 0 @dropdownBorderRadius @dropdownBorderRadius;
+    box-shadow: @dropdownShadow;
+
+    margin: 5px 0 0;
+
+    // helper to to prevent mouse out
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 20px;
+    }
+
+    .option {
+      color: #fff;
+      border-radius: @dropdownBorderRadius;
+      padding: 5px 10px;
+      border: 1px solid #e0e0e0;
+
+      span {
+        text-decoration: underline;
+      }
+
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .option {
+        display: block;
+        min-width: 100%;
+        border: none;
+        color: @SIBlack;
+        font-size: @fontSize;
+        font-weight: @fontWeight;
+        outline: none;
+        padding: (@standardpadding / 4) (@standardpadding / 2);
+        white-space: nowrap;
+
+        &:hover, &:focus {
+          background: @SIBlue;
+          color: white;
+          text-decoration: none;
+        }
+
+        > i, > ui-svg-include:not(:empty) {
+          min-width: @standardpadding;
+        }
+
+        > ui-svg-include:not(:empty) {
+          display: inline-block;
+        }
+
+        > .fa-spin {
+          text-align: center;
+        }
+      }
+
+      &.disabled a, &.disabled button, &[disabled] a, &[disabled] button, .disabled-link {
+        display: inline-block;
+        padding: (@standardpadding / 4) (@standardpadding / 2);
+        cursor: default;
+        color: @subduedTextOnWhite !important;
+        pointer-events: none;
+
+        &:hover {
+          background: inherit !important;
+          color: @subduedTextOnWhite !important;
+        }
+
+        svg {
+          path {
+            fill: @subduedTextOnWhite;
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown-headline {
+    display: block;
+    color: #777;
+    cursor: default;
+    margin: (@standardpadding / 4) (@standardpadding / 2);
+  }
+
+  // positioning for right aligned styling
+  &:not(.left-aligned) {
+    .drop > ul {
+      right: 0;
+    }
+
+    .button {
+      box-shadow: @dropdownShadow;
+
+      &:after {
+        top: -11px;
+      }
+
+      &:before {
+        top: -5px;
+        box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &.hover {
+      .button {
+        box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 @dropdownBorderRadius @dropdownBorderRadius;
+      }
+    }
+  }
+}
+

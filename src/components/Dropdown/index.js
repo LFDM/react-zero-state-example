@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { IconChevronDown } from 'featherico';
 import { withModal } from '../../hocs/withModal';
 import { ButtonInline } from '../Button';
@@ -23,7 +24,7 @@ export const Dropdown = createDropdown({
     return (
       <ButtonInline
         onFocus={onFocus}
-        className={buttonClass}
+        className={classNames(styles.trigger, buttonClass)}
         style={style}
         onMouseDown={onClick}
         onTouchEnd={onClick}
