@@ -21,7 +21,7 @@ export default function App() {
              <Route exact path={R.PRAISE} render={({ location, history}) => (
                <Praise
                  recipientId={queryString.parse(location.search).recipientId}
-                 updateRecipientId={recipientId => history.replace({ search: toString({ recipientId}) })}
+                 updateRecipientId={recipientId => history.replace({ search: queryString.stringify({ recipientId}) })}
                />
              )} />
              <Route render={() => <RouteError errorCode={404} />} />
