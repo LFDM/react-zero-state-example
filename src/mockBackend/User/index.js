@@ -52,4 +52,8 @@ export const getCurrentUser = compose(withLatency, () => CURRENT_USER);
 export const getById = compose(withLatency, _getById);
 export const getByIds = compose(withLatency, filter(identity), map(_getById));
 export const getAll = () => withLatency(values(USERS));
+export const searchByName = (query) => compose(
+  filter(u => u.name.test(query)),
+  values,
+)(USERS)
 

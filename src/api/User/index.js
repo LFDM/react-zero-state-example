@@ -21,3 +21,8 @@ getAll.operation = 'READ';
 export function getAll() {
   return backend.user.getAll();
 }
+
+searchByName.operation = 'READ';
+export function searchByName(query) {
+  return backend.user.searchByName(query);
+}
