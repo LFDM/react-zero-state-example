@@ -10,7 +10,7 @@ const factory = (className, type = 'button') => (props) => (
 );
 
 const buttonFactory = (className, type = 'button') =>
-  factory(classNames(styles.button, className, type));
+  factory(classNames(styles.button, className), type);
 
 export const ButtonSubmit = buttonFactory(styles.primary, 'submit');
 export const ButtonPrimary = buttonFactory(styles.primary);
