@@ -1,3 +1,4 @@
+import { IconModulePraise } from 'featherico';
 import api from '../../../api';
 import { ButtonPrimary } from '../../../components/Button';
 import { WithModal } from '../../../hocs/withModal';
@@ -24,7 +25,7 @@ export default () => (
   >
   {({ openModal }) => (
     <ButtonPrimary onClick={openModal}>
-      Praise someone
+      <IconModulePraise /> Praise someone
     </ButtonPrimary>
   )}
   </WithModal>
