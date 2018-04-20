@@ -59,6 +59,8 @@ export function TextArea(props, context) {
             'disabled',
             'required',
             'style',
+            'rows',
+            'columns'
         ])(props),
     };
     return <StandardTextArea {...inputProps} />;
