@@ -1,7 +1,9 @@
 import { Fragment } from 'react';
+import classNames from 'classnames';
 import { find } from 'lodash/fp';
+import { IconHeart } from 'featherico';
 import { Dropdown, OptionWithModal } from '../../../components/Dropdown';
-import { ButtonContainer, ButtonSecondary, ButtonDangerous, ButtonLink } from '../../../components/Button';
+import { ButtonContainer, ButtonSecondary, ButtonDangerous, ButtonLink, ButtonInline } from '../../../components/Button';
 import Avatar from '../../../components/Avatar';
 import AvatarListStacked from '../../../components/AvatarListStacked';
 import PromiseTracker, { STATUS, forStatus } from '../../../components/PromiseTracker';
@@ -35,12 +37,23 @@ const RemoveConfirmation = ({ onCancel, onConfirm }) => (
   </PromiseTracker>
 );
 
+const Heart = ({ label, fill }) => (
+  <Fragment>
+    <IconHeart className={classNames({ [styles.fillHeart]: fill })}/> {label}
+  </Fragment>
+);
+
 const LikeButton = ({ hasLiked, like, unlike }) => (
   <PromiseTracker onTrigger={hasLiked ? unlike : like}>
     {({ trigger, status }) =>
       forStatus({
-        [STATUS.IDLE]: <ButtonLink onClick={trigger}>{hasLiked ? 'Liked' : 'Like'}</ButtonLink>,
-        [STATUS.PENDING]: <span>Saving...</span>
+        [STATUS.IDLE]: (
+          <ButtonLink onClick={trigger}>{ hasLiked ?
+            <Heart label="Liked" fill={true} /> :
+            <Heart label="Like" />
+          }</ButtonLink>
+        ),
+        [STATUS.PENDING]: <ButtonInline disabled={true}>Saving...</ButtonInline>
       }, status)
     }
   </PromiseTracker>
