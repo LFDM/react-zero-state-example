@@ -1,0 +1,30 @@
+@import '~style/vars.less';
+
+.textArea {
+  resize: vertical;
+
+  border: @inputFieldBorder @inputFieldBorderDefaultColor;
+  border-radius: @inputFieldBorderRadius;
+  font-size: @inputFieldFontSize;
+  padding: (@standardpadding / 2);
+  box-shadow: none;
+  background-color: @inputFieldBackgroundColor;
+
+  &:hover {
+    border-color: @inputFieldBorderHoverColor;
+  }
+
+  &:active, &:focus {
+    background-color: @inputFieldBackgroundColorActive;
+    border-color: @inputFieldBorderActiveColor;
+    outline: none;
+  }
+
+  &[disabled='disabled'],
+  &:disabled {
+    background-color: @boxBackgroundColor;
+    border-color: darken(@boxBackgroundColor, 5);
+    color: lighten(@subduedTextOnGrey, 10);
+  }
+
+}
