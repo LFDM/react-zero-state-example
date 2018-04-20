@@ -53,7 +53,8 @@ export const getById = compose(withLatency, _getById);
 export const getByIds = compose(withLatency, filter(identity), map(_getById));
 export const getAll = () => withLatency(values(USERS));
 export const searchByName = (query) => compose(
-  filter(u => u.name.test(query)),
+  (x) => Promise.resolve(x),
+  filter(u => !!u.name.match(query)),
   values,
 )(USERS)
 
