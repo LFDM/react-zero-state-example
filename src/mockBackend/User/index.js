@@ -54,7 +54,7 @@ export const getByIds = compose(withLatency, filter(identity), map(_getById));
 export const getAll = () => withLatency(values(USERS));
 export const searchByName = (query) => compose(
   (x) => Promise.resolve(x),
-  filter(u => !!u.name.match(query)),
+  filter(u => !!u.name.toLowerCase().match(query)),
   values,
 )(USERS)
 
