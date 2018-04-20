@@ -1,9 +1,19 @@
 import { withState } from 'recompose';
-import Form, { createFormState, getValues } from '../../../components/Form';
+import { IconX } from 'featherico'
+import Form, { createFormState, getValue, getValues, setValue } from '../../../components/Form';
 import PromiseTracker, { STATUS } from '../../../components/PromiseTracker';
+import { ButtonInline } from '../../../components/Button';
+import AvatarWithName from '../../../components/AvatarWithName';
 import { Input, TextArea, AutocompleteUser } from '../../../components/Form/Inputs';
 import { FormContainer, FormGroup, FormLabel } from '../../../components/Form/Layout';
 import { ButtonContainer, ButtonSubmit, ButtonSecondary } from '../../../components/Button';
+import styles from './style.less';
+
+const Recipient = ({ user, onClear }) => (
+  <ButtonInline onClick={onClear} className={styles.selectedRecipient}>
+    <AvatarWithName user={user} /> <IconX />
+  </ButtonInline>
+);
 
 export default withState(
   'form',
@@ -23,7 +33,10 @@ export default withState(
         <FormContainer>
           <FormGroup>
             <FormLabel label="Who do you want to praise?">
-              <AutocompleteUser field="recipient" />
+              { !!getValue('recipient', form) ?
+                <Recipient user={getValue('recipient', form)} onClear={() => setForm(setValue('recipient', null, form))} /> :
+                <AutocompleteUser field="recipient" />
+              }
             </FormLabel>
           </FormGroup>
           <FormGroup>
