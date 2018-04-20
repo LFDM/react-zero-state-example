@@ -1,0 +1,20 @@
+@import '~style/vars.less';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: (@standardpadding * 2);
+}
+
+.title {
+  font-size: @fontSizeXXL;
+  font-weight: @fontWeightBolder;
+}
+
+.controls {
+  > button:last-child {
+    margin-right: 0;
+  }
+}

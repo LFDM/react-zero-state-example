@@ -1,3 +1,11 @@
-export const Page = ({ children }) => <div>{children}</div>;
-export const PageTitle = ({ children }) => <h1>{children}</h1>;
-export const PageBody = ({ children }) => <div>{children}</div>;
+import classNames from 'classnames';
+import styles from './style.less';
+
+const divWithClassName = cN => ({ className, children }) =>
+  <div className={classNames(className, cN)}>{children}</div>
+
+export const Page = divWithClassName(styles.page);
+export const PageHeader = divWithClassName(styles.header);
+export const PageControls = divWithClassName(styles.controls);
+export const PageTitle = divWithClassName(styles.title);
+export const PageBody = divWithClassName(styles.body);
