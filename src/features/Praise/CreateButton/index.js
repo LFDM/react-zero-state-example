@@ -6,7 +6,8 @@ import Form from '../Form';
 
 const EMPTY_PRAISE = {
   title: '',
-  body: ''
+  body: '',
+  recipient: null
 };
 
 export default () => (
