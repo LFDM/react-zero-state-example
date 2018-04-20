@@ -98,7 +98,7 @@ export default ({
               <OptionWithModal
                 modalProps={{
                   title: 'Are you sure?',
-                  size: 'S_WIDTH',
+                  size: 'SM_WIDTH',
                   body: ({ closeModal }) =>
                     <RemoveConfirmation
                       onConfirm={() => remove(praise.id)}

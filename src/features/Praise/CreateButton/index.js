@@ -12,6 +12,7 @@ const EMPTY_PRAISE = {
 
 export default () => (
   <WithModal
+    size="SM_WIDTH"
     title="Praise someone"
     renderModalContent={
       ({ closeModal }) => (
