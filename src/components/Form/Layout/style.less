@@ -1,0 +1,20 @@
+@import '~style/vars.less';
+
+.container {
+  margin-bottom: @standardpadding;
+}
+
+.label {
+  label {
+    font-size: @fontSizeS;
+    display: block;
+    margin-bottom: (@standardpadding / 4);
+  }
+}
+
+.group {
+  &:not(:last-child) {
+    margin-bottom: (@standardpadding / 2);
+  }
+}
+
