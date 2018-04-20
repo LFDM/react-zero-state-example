@@ -33,7 +33,7 @@ export default withState(
           </FormGroup>
           <FormGroup>
             <FormLabel label="Description">
-              <TextArea field="body" />
+              <TextArea field="body" rows={5} />
             </FormLabel>
           </FormGroup>
         </FormContainer>
