@@ -1,0 +1,75 @@
+@import '~style/vars.less';
+
+.results_container {
+  position: relative;
+}
+
+.results {
+  position: absolute;
+  z-index: @zIndexTooltip;
+  border: 1px solid @borderColor;
+  border-top: none;
+  background: @contentBackground;
+  transition: border-color 150ms ease-in;
+}
+
+.results_empty {
+  border-color: transparent;
+  border-width: 0;
+}
+
+.results_inner, .item, .results {
+  width: 100%;
+}
+
+.more_items {
+  cursor: default;
+  padding: (@standardpadding / 4);
+  text-align: center;
+  font-size: smaller;
+  font-style: italic;
+  color: @subduedTextOnWhite;
+}
+
+.nothing_found {
+  cursor: default;
+  display: flex;
+  padding: (@standardpadding / 2);
+  align-items: center;
+  height: 100%;
+  color: @subduedTextOnWhite;
+  min-height: 30px;
+}
+
+.input_with_results {
+  :global(input) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.choice {
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, .8);
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+  overflow: hidden;
+
+  &.isHighlighted {
+    background: @menuHover;
+    color: @contentBackground;
+  }
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: (@standardpadding / 2);
+}
+
