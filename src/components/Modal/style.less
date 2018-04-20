@@ -1,0 +1,66 @@
+@import '~style/vars.less';
+@overlayBackgroundColor: rgba(50, 50, 50, 0.8);
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: @overlayBackgroundColor;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    z-index: @zIndexOverlay;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
+
+    &:global(.ReactModal__Overlay) {
+        &--after-open {
+            opacity: 1;
+        }
+        &--before-close {
+            opacity: 0;
+        }
+        .title {
+            font-weight: @fontWeightBolder;
+            font-size: @fontSizeXL;
+            color: @headingFontColour;
+        }
+    }
+}
+
+.content {
+    background-position-y: 100%;
+    background-color: @contentBackgroundColor;
+    position: relative;
+    display: block;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: @borderRadius;
+    border: rgba(0, 0, 0, 0.10) 1px solid;
+    padding: @standardpadding;
+    flex-shrink: 1;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.topAligned {
+    align-items: flex-start;
+    .content {
+        margin: (@standardpadding) auto;
+    }
+}
+
+:global(.ReactModal__Body) {
+    &--open {
+        overflow: hidden;
+    }
+}
+
