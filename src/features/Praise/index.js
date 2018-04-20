@@ -6,6 +6,7 @@ import List from '../../features/Praise/List';
 import RecipientFilter from '../../features/Praise/RecipientFilter';
 import CreateButton from '../../features/Praise/CreateButton';
 import { ButtonInline } from '../../components/Button';
+import styles from './style.less';
 
 const TitleSuffix = withData({
   resolve: {
@@ -22,7 +23,7 @@ export default function Praise({ recipientId, updateRecipientId }) {
         <PageTitle>
           Praise <TitleSuffix recipientId={recipientId} onClear={() => updateRecipientId(undefined)}/>
         </PageTitle>
-        <PageControls>
+        <PageControls className={styles.controls}>
           <RecipientFilter recipientId={recipientId} onUpdate={updateRecipientId}/>
           <CreateButton />
         </PageControls>
